@@ -1,0 +1,14 @@
+name = "funding-hub-relayer"
+main = "src/index.ts"
+compatibility_date = "2024-12-05"
+
+[vars]
+# DAO_PASS_PROGRAM_ID = "Dz9WAiHQDGLK8K8puZosdUux3UAJMRTKTfWJFqRve4Dk"
+# ALLOWED_PROGRAM_IDS = "Tokenkeg..."
+# RPC_ENDPOINT = "https://api.devnet.solana.com"
+# DAO_INDEX_URL = "https://your-indexer.example.com/dao.json"
+
+[kv_namespaces]
+# [[kv_namespaces]]
+# binding = "DAO_CACHE"
+# id = "xxxxx"

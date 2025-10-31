@@ -1,0 +1,17 @@
+[workspace]
+members = [
+  "programs/funding_hub",
+  "programs/dao_pass",
+  "programs/governance",
+  "programs/savings_vault"
+]
+resolver = "2"
+
+[workspace.dependencies]
+anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
+anchor-spl = "0.30.1"
+solana-program = "1.18.6"
+mpl-token-metadata = "4.1.2"
+
+[profile.release]
+overflow-checks = true

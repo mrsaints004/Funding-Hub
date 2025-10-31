@@ -1,0 +1,13 @@
+name = "funding-hub-indexer"
+main = "src/index.ts"
+compatibility_date = "2024-12-05"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[vars]
+# RPC_ENDPOINT = "https://api.devnet.solana.com"
+# FUNDING_HUB_PROGRAM_ID = "B8gKYNx3LGJVpsAzY72ufrNJj6WZVf8KTodiz1Mex62u"
+# DAO_PASS_PROGRAM_ID = "Dz9WAiHQDGLK8K8puZosdUux3UAJMRTKTfWJFqRve4Dk"
+# GOVERNANCE_PROGRAM_ID = "6pCiN5ZUf5GCY3hJ8YiWL27apECaobGPLVVsSi51rrUq"
+# SAVINGS_VAULT_PROGRAM_ID = "HSnBJMRi1uipcnGeSRcM7kCD1DegertD93CgtKmn18tN"

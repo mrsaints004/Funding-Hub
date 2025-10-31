@@ -1,0 +1,500 @@
+{
+  "address": "Dz9WAiHQDGLK8K8puZosdUux3UAJMRTKTfWJFqRve4Dk",
+  "metadata": {
+    "name": "dao_pass",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "DAO membership NFT and sponsor treasury program"
+  },
+  "instructions": [
+    {
+      "name": "configure_sponsor",
+      "discriminator": [
+        91,
+        205,
+        63,
+        188,
+        56,
+        181,
+        203,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true,
+          "relations": [
+            "dao"
+          ]
+        },
+        {
+          "name": "dao",
+          "writable": true
+        },
+        {
+          "name": "sponsor_vault"
+        }
+      ],
+      "args": [
+        {
+          "name": "new_cap",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_dao",
+      "discriminator": [
+        128,
+        226,
+        96,
+        90,
+        39,
+        56,
+        24,
+        196
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "dao",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  97,
+                  111
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              },
+              {
+                "kind": "arg",
+                "path": "name_seed"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pass_mint",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "sponsor_vault"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "name_seed",
+          "type": {
+            "array": [
+              "u8",
+              8
+            ]
+          }
+        },
+        {
+          "name": "sponsor_mint",
+          "type": "pubkey"
+        },
+        {
+          "name": "max_relay_spend",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "issue_pass",
+      "discriminator": [
+        250,
+        54,
+        53,
+        228,
+        201,
+        116,
+        71,
+        224
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true,
+          "relations": [
+            "dao"
+          ]
+        },
+        {
+          "name": "member_wallet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "dao",
+          "writable": true
+        },
+        {
+          "name": "pass_mint",
+          "writable": true
+        },
+        {
+          "name": "member",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  101,
+                  109,
+                  98,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "dao"
+              },
+              {
+                "kind": "account",
+                "path": "member_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "member_pass_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "member_wallet"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pass_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "record_relay_spend",
+      "discriminator": [
+        7,
+        107,
+        46,
+        57,
+        83,
+        176,
+        11,
+        95
+      ],
+      "accounts": [
+        {
+          "name": "dao",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "signer": true,
+          "relations": [
+            "dao"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "spend",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Dao",
+      "discriminator": [
+        163,
+        9,
+        47,
+        31,
+        52,
+        85,
+        197,
+        49
+      ]
+    },
+    {
+      "name": "Member",
+      "discriminator": [
+        54,
+        19,
+        162,
+        21,
+        29,
+        166,
+        17,
+        198
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidLimit",
+      "msg": "Invalid limit"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidSpend",
+      "msg": "Invalid spend amount"
+    },
+    {
+      "code": 6003,
+      "name": "RelayBudgetExceeded",
+      "msg": "Relay budget exceeded"
+    },
+    {
+      "code": 6004,
+      "name": "MintMismatch",
+      "msg": "Mint mismatch"
+    },
+    {
+      "code": 6005,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6006,
+      "name": "BumpNotFound",
+      "msg": "Bump missing"
+    }
+  ],
+  "types": [
+    {
+      "name": "Dao",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "pass_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "sponsor_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "sponsor_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "max_relay_spend",
+            "type": "u64"
+          },
+          {
+            "name": "relay_spent",
+            "type": "u64"
+          },
+          {
+            "name": "relay_epoch",
+            "type": "u64"
+          },
+          {
+            "name": "total_members",
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "name_seed",
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "reserved",
+            "type": {
+              "array": [
+                "u8",
+                7
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Member",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "dao",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "membership_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "member_pass_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "joined_ts",
+            "type": "i64"
+          },
+          {
+            "name": "mint_count",
+            "type": "u64"
+          },
+          {
+            "name": "reserved",
+            "type": {
+              "array": [
+                "u8",
+                16
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

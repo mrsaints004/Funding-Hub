@@ -1,0 +1,25 @@
+[toolchain]
+anchor_version = "0.30.1"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.devnet]
+dao_pass = "Dz9WAiHQDGLK8K8puZosdUux3UAJMRTKTfWJFqRve4Dk"
+funding_hub = "B8gKYNx3LGJVpsAzY72ufrNJj6WZVf8KTodiz1Mex62u"
+governance = "6pCiN5ZUf5GCY3hJ8YiWL27apECaobGPLVVsSi51rrUq"
+savings_vault = "HSnBJMRi1uipcnGeSRcM7kCD1DegertD93CgtKmn18tN"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[workspace]
+members = ["programs/funding_hub", "programs/dao_pass", "programs/governance", "programs/savings_vault"]
+
+[scripts]
+test = "node tests/funding_hub.js"
