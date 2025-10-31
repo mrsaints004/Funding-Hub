@@ -2,7 +2,7 @@
 
 > A Solana-powered crowdfunding platform with NFT badges, DAO governance, savings vaults, and Jupiter token swaps built on Anchor and Next.js.
 
-**Live Demo**: [funding-hub.vercel.app](https://funding-hub.vercel.app)
+**Live Demo**: [funding-hub-chi.vercel.app](https://funding-hub-chi.vercel.app)
 
 This repository houses a Solana-first, serverless-friendly platform that enables community-led funding, DAO coordination, and portfolio tooling without relying on a traditional backend. The system is organized into modular programs and lightweight off-chain services so that each feature can evolve independently while staying decentralized.
 
